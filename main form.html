@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>User information</h3>
+    <br />
+    <form
+      action=""
+      onsubmit="
+        Form();
+        return false;
+      "
+    >
+      <label for="">Full Name</label>
+      <input type="text" id="name" /><br /><br />
+      <label for="">Email Address</label>
+      <input type="email" id="email" /><br /><br />
+      <label for="">Date of Birth</label>
+      <input type="date" id="date" /><br /><br />
+      <label for="">Gender</label>
+      <input type="radio" name="gerder" value="male" id="m" />Male
+      <input type="radio" name="gerder" value="female" id="f" />Female
+      <br /><br />
+      <label for="">Country</label>
+      <select name="form-select" id="country">
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="India">India</option>
+        <option value="Pakistan">Pakistan</option>
+      </select>
+      <br /><br />
+      <label for="">Hobbies</label>
+
+      <input type="checkbox" name="hobies" value="coding" id="h1" />Coding
+      <input type="checkbox" name="hobies" value="traveling" id="h2" />traveling
+      <input type="checkbox" name="hobies" value="gaiming" id="h3" />gaiming
+      <br /><br />
+      <label for="">About you</label>
+      <textarea name="" id="about"></textarea><br /><br />
+
+      <p id="output">User information</p>
+
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <script>
+      function Form() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let country = document.getElementById("country").value;
+        let date = document.getElementById("date").value;
+        let about = document.getElementById("about").value;
+        let gender = document.querySelector(
+          'input[name="gerder"]:checked',
+        ).value;
+
+        let hobies = Array.from(
+          document.querySelectorAll('input[name="hobies"]:checked'),
+        ).map((h) => h.value);
+
+      
+        let output =
+          "<b>Name:</b> " + name +
+          "<br>" +
+          "<b>Email:</b> " + email +
+          "<br>" +
+          "<b>Country:</b> " + country +
+          "<br>" +
+          "<b>Date:</b> " + date +
+          "<br>" +
+          "<b>About:</b> " +
+          about +
+          "<br>" +
+          "<b>Gender:</b> " +
+          gender +
+          "<br>" +
+          "<b>Hobies:</b> " +
+          hobies;
+
+        let newwindow = window.open("", "_blank", "width=600,height=400");
+        newwindow.document.write("<h4> User information </h4>");
+        newwindow.document.write(output);
+      }
+    </script>
+  </body>
+</html>
